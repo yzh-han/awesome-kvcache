@@ -47,6 +47,26 @@ Interpretation for this batch:
 | 2026-03-25 | [KV Cache Transform Coding for Compact Storage in LLM Inference](https://arxiv.org/abs/2511.01815) | [ICLR 2026 Poster](https://openreview.net/forum?id=aNVKROYpLB) | promoted | [note](notes/2026/2026-03-25-2511.01815-kvtc.md) | accepted batch, main taxonomy |
 | 2026-03-25 | [FreqKV: Key-Value Compression in Frequency Domain for Context Window Extension](https://arxiv.org/abs/2505.00570) | [ICLR 2026 Poster](https://openreview.net/forum?id=wFSOtyvQ9d) | promoted | [note](notes/2026/2026-03-25-2505.00570-freqkv.md) | accepted batch, main taxonomy |
 
+## Accepted Batch: 2025
+
+Interpretation for this batch:
+
+- Window: `2025-01-01` to `2025-12-31`
+- Criterion: the paper has an arXiv version and an explicit acceptance signal visible from OpenReview, official proceedings, or ACL Anthology during 2025
+- This is a curated set of the most directly KV-cache-centric accepted papers, not an exhaustive venue dump
+
+| Added | Paper | Acceptance Signal | Status | Note | Outcome |
+| --- | --- | --- | --- | --- | --- |
+| 2026-03-25 | [MatryoshkaKV: Adaptive KV Compression via Trainable Orthogonal Projection](https://arxiv.org/abs/2410.14731) | [ICLR 2025 Poster](https://openreview.net/forum?id=BQwsRy1h3U) | promoted | [note](notes/2026/2026-03-25-2410.14731-matryoshkakv.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [SqueezeAttention: 2D Management of KV-Cache in LLM Inference via Layer-wise Optimal Budget](https://arxiv.org/abs/2404.04793) | [ICLR 2025 Poster](https://openreview.net/forum?id=9HK2rHNAhd) | promoted | [note](notes/2026/2026-03-25-2404.04793-squeezeattention.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [RazorAttention: Efficient KV Cache Compression Through Retrieval Heads](https://arxiv.org/abs/2407.15891) | [ICLR 2025 Poster](https://openreview.net/forum?id=tkiZQlL04w) | promoted | [note](notes/2026/2026-03-25-2407.15891-razorattention.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [Palu: KV-Cache Compression with Low-Rank Projection](https://arxiv.org/abs/2407.21118) | [ICLR 2025](https://proceedings.iclr.cc/paper_files/paper/2025/hash/7da6e0e00702c60607a6ae05c802ef85-Abstract-Conference.html) | promoted | [note](notes/2026/2026-03-25-2407.21118-palu.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [CAKE: Cascading and Adaptive KV Cache Eviction with Layer Preferences](https://arxiv.org/abs/2503.12491) | [ICLR 2025](https://proceedings.iclr.cc/paper_files/paper/2025/hash/dfae940651f3e690a12e19c874edad7c-Abstract-Conference.html) | promoted | [note](notes/2026/2026-03-25-2503.12491-cake.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization for Efficient and Nearly Lossless LLM Inference](https://arxiv.org/abs/2502.04420) | [ICML 2025](https://proceedings.mlr.press/v267/li25dd.html) | promoted | [note](notes/2026/2026-03-25-2502.04420-kvtuner.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [SpeCache: Speculative Key-Value Caching for Efficient Generation of LLMs](https://arxiv.org/abs/2503.16163) | [ICML 2025](https://proceedings.mlr.press/v267/jie25a.html) | promoted | [note](notes/2026/2026-03-25-2503.16163-specache.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [KeyDiff: Key Similarity-Based KV Cache Eviction for Long-Context LLM Inference in Resource-Constrained Environments](https://arxiv.org/abs/2504.15364) | [NeurIPS 2025 Poster](https://openreview.net/forum?id=uBaFH7aQnC) | promoted | [note](notes/2026/2026-03-25-2504.15364-keydiff.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [Lookahead Q-Cache: Achieving More Consistent KV Cache Eviction via Pseudo Query](https://arxiv.org/abs/2505.20334) | [EMNLP 2025 Main](https://aclanthology.org/2025.emnlp-main.1732/) | promoted | [note](notes/2026/2026-03-25-2505.20334-lookahead-q-cache.md) | accepted batch, main taxonomy |
+
 ## Current Tracking Queue
 
 Window reviewed in this batch: `2026-02-25` to `2026-03-25`.

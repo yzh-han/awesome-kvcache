@@ -120,9 +120,12 @@ Methods that directly compress KV states or keep only a subset of tokens, heads,
 | Year | Paper | Venue | Core Idea | Setting | Gain | Code |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2023 | [H2O: Heavy-Hitter Oracle for Efficient Generative Inference of Large Language Models](https://proceedings.neurips.cc/paper_files/paper/2023/hash/6ceefa7b15572587b78ecfcebb2827f8-Abstract-Conference.html) | NeurIPS | Retains heavy-hitter tokens that contribute most to attention. | decode, long-context | memory↓, throughput↑ | [repo](https://github.com/FMInference/H2O) |
+| 2024 | [MatryoshkaKV: Adaptive KV Compression via Trainable Orthogonal Projection](https://arxiv.org/abs/2410.14731) | ICLR 2025 | Compresses KV hidden dimensions with trainable orthogonal projection rather than deleting tokens. | decode, long-context | memory↓, quality retained | N/A |
+| 2024 | [RazorAttention: Efficient KV Cache Compression Through Retrieval Heads](https://arxiv.org/abs/2407.15891) | ICLR 2025 | Preserves full remote KV only for retrieval heads and compresses the rest with a training-free strategy. | decode, long-context | memory↓, quality retained | N/A |
 | 2024 | [SnapKV: LLM Knows What You are Looking for Before Generation](https://arxiv.org/abs/2404.14469) | arXiv | Uses an observation window to identify important KV positions per head before generation. | prefill, decode, long-context | memory↓, latency↓ | [repo](https://github.com/FasterDecoding/SnapKV) |
 | 2024 | [MiniCache: KV Cache Compression in Depth Dimension for Large Language Models](https://arxiv.org/abs/2405.14366) | arXiv | Compresses KV across layers by exploiting cross-layer similarity. | decode, long-context | memory↓ | [repo](https://github.com/ydchen0806/MiniCache) |
 | 2024 | [PyramidKV: Dynamic KV Cache Compression based on Pyramidal Information Funneling](https://openreview.net/forum?id=jZVNmDiU86) | ICLR 2025 | Allocates cache differently across layers based on pyramidal information flow. | decode, long-context | memory↓, quality retained | [repo](https://github.com/Zefan-Cai/PyramidKV) |
+| 2024 | [Palu: KV-Cache Compression with Low-Rank Projection](https://arxiv.org/abs/2407.21118) | ICLR 2025 | Uses low-rank projection to compress KV hidden dimensions while preserving long-context behavior. | decode, long-context | memory↓, latency↓ | N/A |
 | 2025 | [FreqKV: Key-Value Compression in Frequency Domain for Context Window Extension](https://arxiv.org/abs/2505.00570) | ICLR 2026 | Iteratively compresses KV in the frequency domain to support robust long-context extension. | prefill, decode, long-context | context length↑, quality retained | [repo](https://github.com/LUMIA-Group/FreqKV) |
 | 2025 | [KV Cache Transform Coding for Compact Storage in LLM Inference](https://arxiv.org/abs/2511.01815) | ICLR 2026 | Uses transform coding, adaptive quantization, and entropy coding for compact reusable KV storage. | serving, reusable-cache | memory↓, compression↑ | N/A |
 | 2026 | [KVSlimmer: Theoretical Insights and Practical Optimizations for Asymmetric KV Merging](https://arxiv.org/abs/2603.00907) | arXiv | Gives a theory-backed, gradient-free closed-form method for asymmetric KV merging. | decode, long-context | memory↓, latency↓, quality↑ | N/A |
@@ -135,6 +138,7 @@ Methods that reduce KV precision, often with asymmetric or mixed-precision desig
 | --- | --- | --- | --- | --- | --- | --- |
 | 2024 | [KIVI: A Tuning-Free Asymmetric 2bit Quantization for KV Cache](https://arxiv.org/abs/2402.02750) | ICML 2024 | Uses asymmetric 2-bit quantization with different strategies for keys and values. | decode, serving | memory↓, throughput↑ | [repo](https://github.com/jy-yuan/KIVI) |
 | 2024 | [KVQuant: Towards 10 Million Context Length LLM Inference with KV Cache Quantization](https://arxiv.org/abs/2401.18079) | arXiv | Pushes sub-4-bit KV quantization for ultra-long context inference. | long-context, serving | memory↓, context length↑ | [repo](https://github.com/SqueezeAILab/KVQuant) |
+| 2025 | [KVTuner: Sensitivity-Aware Layer-Wise Mixed-Precision KV Cache Quantization for Efficient and Nearly Lossless LLM Inference](https://arxiv.org/abs/2502.04420) | ICML 2025 | Searches hardware-friendly layer-wise mixed-precision KV bit-widths to improve throughput with little quality loss. | decode, serving | throughput↑, latency↓ | [repo](https://github.com/cmd2001/KVTuner) |
 
 ### 3. Eviction and Budget Allocation
 
@@ -143,7 +147,10 @@ Methods that explicitly manage a fixed cache budget and decide what to discard.
 | Year | Paper | Venue | Core Idea | Setting | Gain | Code |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2024 | [On the Efficacy of Eviction Policy for Key-Value Constrained Generative Language Model Inference](https://arxiv.org/abs/2402.06262) | arXiv | Studies why prior eviction policies fail and proposes a more robust omission strategy. | decode, long-context | quality retained under budget | N/A |
+| 2024 | [SqueezeAttention: 2D Management of KV-Cache in LLM Inference via Layer-wise Optimal Budget](https://arxiv.org/abs/2404.04793) | ICLR 2025 | Jointly allocates KV budget across layers and tokens instead of treating every layer equally. | decode, long-context | memory↓, throughput↑ | [repo](https://github.com/hetailang/SqueezeAttention) |
+| 2025 | [Lookahead Q-Cache: Achieving More Consistent KV Cache Eviction via Pseudo Query](https://arxiv.org/abs/2505.20334) | EMNLP 2025 | Uses low-cost pseudo lookahead queries to make KV eviction more consistent with true decode-time needs. | decode, long-context | quality↑ under budget | N/A |
 | 2025 | [CAKE: Cascading and Adaptive KV Cache Eviction with Layer Preferences](https://proceedings.iclr.cc/paper_files/paper/2025/hash/dfae940651f3e690a12e19c874edad7c-Abstract-Conference.html) | ICLR 2025 | Allocates cache across layers using adaptive layer-specific preferences. | decode, long-context | memory↓, latency↓ | [repo](https://github.com/antgroup/cakekv) |
+| 2025 | [KeyDiff: Key Similarity-Based KV Cache Eviction for Long-Context LLM Inference in Resource-Constrained Environments](https://arxiv.org/abs/2504.15364) | NeurIPS 2025 | Uses key similarity instead of attention scores to preserve diverse and useful cache states under a strict budget. | decode, long-context | latency↓, quality retained | N/A |
 
 ### 4. Streaming and Fixed-Memory Decoding
 
@@ -178,6 +185,7 @@ Work on moving KV between different devices or between prefill and decode nodes.
 | Year | Paper | Venue | Core Idea | Setting | Gain | Code |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2025 | [FlowKV: A Disaggregated Inference Framework with Low-Latency KV Cache Transfer and Load-Aware Scheduling](https://arxiv.org/abs/2504.03775) | arXiv | Optimizes KV transfer and scheduling in disaggregated prefill/decode serving. | serving, disaggregation | transfer latency↓, throughput↑ | N/A |
+| 2025 | [SpeCache: Speculative Key-Value Caching for Efficient Generation of LLMs](https://arxiv.org/abs/2503.16163) | ICML 2025 | Offloads the full KV cache to CPU memory and speculatively prefetches likely-needed states back to VRAM. | decode, serving | VRAM↓, quality retained | N/A |
 | 2026 | [DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference](https://arxiv.org/abs/2602.21548) | arXiv | Adds a storage-to-decode KV loading path and global scheduling for disaggregated agentic inference. | serving, disaggregation | throughput↑, SLO-safe online serving | N/A |
 | 2025 | [Disaggregated Serving](https://docs.nvidia.com/dynamo/v-0-7-0/design-docs/disaggregated-serving) | System | NVIDIA Dynamo design doc on prefill/decode separation and KV transfer paths. | serving, disaggregation | system design reference | N/A |
 
