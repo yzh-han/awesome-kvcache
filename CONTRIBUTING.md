@@ -29,6 +29,18 @@ Usually not a good fit:
 - General LLM quantization papers with no KV-cache section
 - Product announcements with no technical detail
 
+## Main List vs. ArXiv Tracking
+
+Use the main `README.md` for papers that are already worth keeping in the curated list.
+
+Use [`arxiv-tracker/README.md`](arxiv-tracker/README.md) for:
+
+- very recent arXiv papers
+- papers you are still triaging
+- papers that need a short note before final placement
+
+Each tracked paper should also get one note file under `arxiv-tracker/notes/`.
+
 ## Formatting Rules
 
 Use the same schema as `README.md` and `data/papers.csv`.
@@ -66,7 +78,7 @@ Prefer official links:
 
 - Added the item to the right category in `README.md`
 - Added or updated the structured row in `data/papers.csv` or `data/systems.csv`
+- If it is a recent arXiv paper, added it to `data/arxiv-tracker.csv` and wrote a note
 - Used official links where possible
 - Kept the summary to one sentence
 - Avoided duplicate entries
-

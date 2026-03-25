@@ -10,6 +10,7 @@ This repository focuses on **inference-time KV cache research**: how to reduce K
 - [Design Principles](#design-principles)
 - [Taxonomy](#taxonomy)
 - [Repository Structure](#repository-structure)
+- [ArXiv Tracking](#arxiv-tracking)
 - [Paper List by Category](#paper-list-by-category)
   - [1. Compression and Sparsification](#1-compression-and-sparsification)
   - [2. Quantization](#2-quantization)
@@ -67,17 +68,36 @@ Detailed boundary notes and paper-placement rules live in [`docs/taxonomy.md`](d
 .
 ├── README.md
 ├── CONTRIBUTING.md
+├── arxiv-tracker
+│   ├── README.md
+│   ├── note-template.md
+│   └── notes
+│       └── 2026
+├── data
+│   ├── arxiv-tracker.csv
+│   ├── papers.csv
+│   └── systems.csv
 ├── docs
 │   ├── paper-template.md
 │   ├── reading-roadmap.md
 │   └── taxonomy.md
-├── data
-│   ├── papers.csv
-│   └── systems.csv
 └── .github
     └── ISSUE_TEMPLATE
         └── add-paper.md
 ```
+
+## ArXiv Tracking
+
+To track very recent KV-cache-related papers without polluting the main curated list, this repo now uses a separate `arxiv-tracker/` module.
+
+Recommended workflow:
+
+1. Add a new paper to [`arxiv-tracker/README.md`](arxiv-tracker/README.md)
+2. Add structured metadata to [`data/arxiv-tracker.csv`](data/arxiv-tracker.csv)
+3. Create a short note under `arxiv-tracker/notes/<year>/`
+4. Once the paper is clearly relevant and worth keeping, promote it into the main taxonomy in this README
+
+This separation keeps the homepage stable while still giving you a place to track newly released arXiv papers aggressively.
 
 ## Paper List by Category
 
@@ -103,6 +123,7 @@ Methods that directly compress KV states or keep only a subset of tokens, heads,
 | 2024 | [SnapKV: LLM Knows What You are Looking for Before Generation](https://arxiv.org/abs/2404.14469) | arXiv | Uses an observation window to identify important KV positions per head before generation. | prefill, decode, long-context | memory↓, latency↓ | [repo](https://github.com/FasterDecoding/SnapKV) |
 | 2024 | [MiniCache: KV Cache Compression in Depth Dimension for Large Language Models](https://arxiv.org/abs/2405.14366) | arXiv | Compresses KV across layers by exploiting cross-layer similarity. | decode, long-context | memory↓ | [repo](https://github.com/ydchen0806/MiniCache) |
 | 2024 | [PyramidKV: Dynamic KV Cache Compression based on Pyramidal Information Funneling](https://openreview.net/forum?id=jZVNmDiU86) | ICLR 2025 | Allocates cache differently across layers based on pyramidal information flow. | decode, long-context | memory↓, quality retained | [repo](https://github.com/Zefan-Cai/PyramidKV) |
+| 2026 | [KVSlimmer: Theoretical Insights and Practical Optimizations for Asymmetric KV Merging](https://arxiv.org/abs/2603.00907) | arXiv | Gives a theory-backed, gradient-free closed-form method for asymmetric KV merging. | decode, long-context | memory↓, latency↓, quality↑ | N/A |
 
 ### 2. Quantization
 
@@ -146,6 +167,7 @@ Serving-engine work on allocation, fragmentation, sharing, and layout abstractio
 | Year | Paper | Venue | Core Idea | Setting | Gain | Code |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2023 | [Efficient Memory Management for Large Language Model Serving with PagedAttention](https://arxiv.org/abs/2309.06180) | SOSP 2023 | Uses paged KV blocks and copy-on-write sharing to reduce fragmentation and duplication. | serving | throughput↑, memory waste↓ | [repo](https://github.com/vllm-project/vllm) |
+| 2026 | [KEEP: A KV-Cache-Centric Memory Management System for Efficient Embodied Planning](https://arxiv.org/abs/2602.23592) | DAC 2026 | Manages dynamic embodied-planning memory directly at the KV-cache layer to reduce recomputation and loading imbalance. | prefill, serving | TTFT↓, speed↑ | [repo](https://github.com/PKU-SEC-Lab/KEEP_Embodied_Memory) |
 
 ### 7. Offloading and Disaggregated Serving
 
@@ -154,6 +176,7 @@ Work on moving KV between different devices or between prefill and decode nodes.
 | Year | Paper | Venue | Core Idea | Setting | Gain | Code |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2025 | [FlowKV: A Disaggregated Inference Framework with Low-Latency KV Cache Transfer and Load-Aware Scheduling](https://arxiv.org/abs/2504.03775) | arXiv | Optimizes KV transfer and scheduling in disaggregated prefill/decode serving. | serving, disaggregation | transfer latency↓, throughput↑ | N/A |
+| 2026 | [DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference](https://arxiv.org/abs/2602.21548) | arXiv | Adds a storage-to-decode KV loading path and global scheduling for disaggregated agentic inference. | serving, disaggregation | throughput↑, SLO-safe online serving | N/A |
 | 2025 | [Disaggregated Serving](https://docs.nvidia.com/dynamo/v-0-7-0/design-docs/disaggregated-serving) | System | NVIDIA Dynamo design doc on prefill/decode separation and KV transfer paths. | serving, disaggregation | system design reference | N/A |
 
 ### 8. System and Kernel Co-design
@@ -199,6 +222,7 @@ If you want to add papers, systems, or benchmarks:
 
 - Read [`CONTRIBUTING.md`](CONTRIBUTING.md)
 - Use [`docs/paper-template.md`](docs/paper-template.md) for new entries
+- Use [`arxiv-tracker/note-template.md`](arxiv-tracker/note-template.md) for per-paper notes
 - Submit an issue or PR using the template in [`.github/ISSUE_TEMPLATE/add-paper.md`](.github/ISSUE_TEMPLATE/add-paper.md)
 
 ## Related Awesome Lists
