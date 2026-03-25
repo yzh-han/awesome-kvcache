@@ -1,0 +1,7 @@
+name,type,focus,link,notes
+vLLM,serving_engine,"paged attention, KV layout, prefix sharing",https://github.com/vllm-project/vllm,canonical KV-aware serving runtime
+SGLang,serving_engine,"structured execution, radix-style prefix reuse",https://github.com/sgl-project/sglang,important for prompt/prefix reuse tracking
+LMCache,cache_layer,"prefill reuse, persistent KV storage",https://github.com/LMCache/LMCache,reuse-everywhere KV layer
+NVIDIA Dynamo,serving_stack,"disaggregated serving, KV transfer",https://docs.nvidia.com/dynamo/latest/,reference for production-oriented KV movement
+TensorRT-LLM,serving_stack,"kernel and serving optimizations",https://github.com/NVIDIA/TensorRT-LLM,track KV-specific features separately
+
