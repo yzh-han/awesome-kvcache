@@ -33,6 +33,20 @@ Example:
 arxiv-tracker/notes/2026/2026-03-25-2603.12345-layerwise-kv-routing.md
 ```
 
+## Accepted Batch: Jan-Feb 2026
+
+Interpretation for this batch:
+
+- Window: `2026-01-01` to `2026-02-28`
+- Criterion: the paper has an arXiv version and an explicit acceptance signal visible from arXiv comments, OpenReview, or an official proceedings page during this window
+- This is **not** restricted to papers first posted on arXiv in Jan-Feb 2026
+
+| Added | Paper | Acceptance Signal | Status | Note | Outcome |
+| --- | --- | --- | --- | --- | --- |
+| 2026-03-25 | [KEEP: A KV-Cache-Centric Memory Management System for Efficient Embodied Planning](https://arxiv.org/abs/2602.23592) | `DAC 2026` in arXiv comments | promoted | [note](notes/2026/2026-03-25-2602.23592-keep.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [KV Cache Transform Coding for Compact Storage in LLM Inference](https://arxiv.org/abs/2511.01815) | [ICLR 2026 Poster](https://openreview.net/forum?id=aNVKROYpLB) | promoted | [note](notes/2026/2026-03-25-2511.01815-kvtc.md) | accepted batch, main taxonomy |
+| 2026-03-25 | [FreqKV: Key-Value Compression in Frequency Domain for Context Window Extension](https://arxiv.org/abs/2505.00570) | [ICLR 2026 Poster](https://openreview.net/forum?id=wFSOtyvQ9d) | promoted | [note](notes/2026/2026-03-25-2505.00570-freqkv.md) | accepted batch, main taxonomy |
+
 ## Current Tracking Queue
 
 Window reviewed in this batch: `2026-02-25` to `2026-03-25`.
