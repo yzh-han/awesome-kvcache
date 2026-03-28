@@ -11,6 +11,7 @@ This repository focuses on **inference-time KV cache research**: how to reduce K
 - [Taxonomy](#taxonomy)
 - [Repository Structure](#repository-structure)
 - [ArXiv Tracking](#arxiv-tracking)
+- [Paper Inbox](#paper-inbox)
 - [Paper List by Category](#paper-list-by-category)
   - [1. Compression and Sparsification](#1-compression-and-sparsification)
   - [2. Quantization](#2-quantization)
@@ -78,6 +79,7 @@ Detailed boundary notes and paper-placement rules live in [`docs/taxonomy.md`](d
 │   ├── papers.csv
 │   └── systems.csv
 ├── docs
+│   ├── paper-inbox.md
 │   ├── paper-template.md
 │   ├── reading-roadmap.md
 │   └── taxonomy.md
@@ -98,6 +100,16 @@ Recommended workflow:
 4. Once the paper is clearly relevant and worth keeping, promote it into the main taxonomy in this README
 
 This separation keeps the homepage stable while still giving you a place to track newly released arXiv papers aggressively.
+
+## Paper Inbox
+
+If you only want a quick place to drop paper titles before reading them carefully, use [`docs/paper-inbox.md`](docs/paper-inbox.md).
+
+Recommended workflow:
+
+1. Put the paper title in `docs/paper-inbox.md`
+2. Read and summarize it
+3. If it is truly KV-cache-centric, move it into the main taxonomy in this README
 
 ## Paper List by Category
 
